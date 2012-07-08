@@ -1,0 +1,47 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+/* Listing */
+ul#products {
+	list-style: none;
+}
+ul#products li {
+	float: left;
+	width: 160px;
+	text-align: center;
+	font-weight: bold;
+	padding-left: 10px;
+}
+ul#products li .product-image {
+	border: 1px solid #D9D9DB;
+	padding: 5px;
+	min-height: 110px;
+	background-color: white;
+}
+ul#products li a.info {
+	height: 35px;
+	margin-top: 5px;
+	font-size: 12px;
+	color: #00ADEE;
+	text-decoration: none;
+}
+ul#products li a.info:hover {
+	color: #03F;
+}
+ul#products li .price {
+	color: #00ADEE;
+	font-size: 16px;
+	padding-top: 5px;
+	display: block;
+}

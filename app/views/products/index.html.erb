@@ -1,0 +1,16 @@
+<h1>Listing products</h1>
+
+<ul id="products">
+<% @products.each do |product| %>
+    <li>
+    	<%= link_to product.title, product, class: "info" %>
+    	<div class="product-image">
+          <%= link_to image_tag('testimage.jpeg'), product %>
+        </div>
+    	<span class="price"><%= product.price %> <%= link_to 'x', product, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+    </li>
+<% end %>
+</ul>
+<br />
+
+<%= link_to 'New Product', new_product_path %>
