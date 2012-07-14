@@ -12,6 +12,12 @@
  *= require_tree .
  */
 
+.wrapper {
+	min-height: 100%;
+}
+
+
+
 /* Listing */
 ul#products {
 	list-style: none;

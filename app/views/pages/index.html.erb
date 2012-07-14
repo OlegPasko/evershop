@@ -1,0 +1,13 @@
+<h1>Новинки магазина</h1>
+
+<ul id="products">
+<% @products.each do |product| %>
+    <li>
+    	<%= link_to product.title, product, class: "info" %>
+    	<div class="product-image">
+          <%= link_to image_tag('testimage.jpeg'), product %>
+        </div>
+    	<span class="price"><%= product.price %></span>
+    </li>
+<% end %>
+</ul>
