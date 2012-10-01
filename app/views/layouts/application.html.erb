@@ -7,11 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="wrapper">
-	<%= render '/layouts/header'%>
-	
-	
-<%= yield %>
-</div>
+	<div class="wrapper">
+		<%= render '/layouts/header'%>
+		<%= yield %>
+		<div class="clear"></div>
+		<div class="footer">
+			<ul class="mainnav">
+				<% Value.all.each do |v|%>
+					<li><%= link_to v.value, v %></li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
 </body>
 </html>

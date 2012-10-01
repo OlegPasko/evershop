@@ -6,4 +6,11 @@ class Product < ActiveRecord::Base
   validates :price, numericality: {greater_than_or_equal_to: 0}
   
   scope :recent, order("created_at DESC")
+  
+  has_many :product_values
+  has_many :values, :through => :product_values
+  
+  def to_param
+    "#{id}-#{title.parameterize}"
+  end
 end

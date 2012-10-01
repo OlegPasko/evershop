@@ -3,7 +3,7 @@
 		<h1 class="center">Каталог</h1>
 		
 		<ul class="products">
-		<% @products.each do |product| %>
+		<% @value.products.each do |product| %>
 		    <li>
 		    	<div class="product-image">
 		          <%= link_to image_tag('testimage.jpeg'), product %>

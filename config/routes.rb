@@ -1,7 +1,12 @@
 Evershop::Application.routes.draw do
 
-  resources :products
+  ActiveAdmin.routes(self)
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
+  resources :products, :only => [:index, :show]
+  resources :values, :only => [:show]
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -51,7 +56,7 @@ Evershop::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'pages#index', as: 'pages'
+  root :to => 'pages#index'
 
   # See how all your routes lay out with "rake routes"
 
