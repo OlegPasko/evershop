@@ -9,8 +9,22 @@ class Product < ActiveRecord::Base
   
   has_many :product_values
   has_many :values, :through => :product_values
+  has_many :line_items
   
-  def to_param
-    "#{id}-#{title.parameterize}"
+  before_destroy :ensure_not_referenced_by_any_line_item
+  
+  #def to_param
+  #  "#{id}-#{title.parameterize}"
+  #end
+  
+  private
+  
+  def ensure_not_referenced_by_any_line_item
+    if line_items.empty?
+      return true
+    else
+      errors.add(:base, 'line items exist')
+      return false
+    end
   end
 end

@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+<h1>Cart</h1>
+<ul>
+	<% @cart.line_items.each do |item| %>
+	<li><%= item.quantity %> &times; <%= item.product.title %> = <%= item.total_price %></li>
+	<% end %>
+</ul>
+<%= @cart.total_price %>
+<%= button_to 'Очистить корину', @cart, method: :delete %>

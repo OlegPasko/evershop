@@ -1,5 +1,9 @@
 Evershop::Application.routes.draw do
 
+  resources :line_items
+
+  resources :carts
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
