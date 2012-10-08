@@ -1,0 +1,12 @@
+Заказ №<%= @order.id %>!
+===============================================
+ 
+<%= @order.name %> <%= @order.created_at %> заказал:
+<% @order.line_items.each do |i| %>
+	— <%= i.product.title %>
+<% end %>
+
+<%= @order.email if @order.email %>
+<%= @order.address if @order.address %>
+Интернет-магазин Teaco, админка:
+http://teaco.com.ua/admin/

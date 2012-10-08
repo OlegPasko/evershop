@@ -7,3 +7,8 @@
 </ul>
 <%= @cart.total_price %>
 <%= button_to 'Очистить корину', @cart, method: :delete %>
+
+
+<br />
+<%= render :partial => '/orders/orderform' %>
+

@@ -13,9 +13,9 @@ class Product < ActiveRecord::Base
   
   before_destroy :ensure_not_referenced_by_any_line_item
   
-  #def to_param
-  #  "#{id}-#{title.parameterize}"
-  #end
+  def to_param
+    "#{id}-#{title.parameterize}"
+  end
   
   private
   
