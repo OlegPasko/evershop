@@ -8,8 +8,15 @@ class CartsController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @cart }
     end
-    
-    
+  end
+  
+  def index
+    @cart = Cart.find(session[:cart_id])
+    @order = Order.new
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @cart }
+    end
   end
   
   def destroy

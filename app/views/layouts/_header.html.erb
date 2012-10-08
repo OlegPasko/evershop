@@ -1,5 +1,5 @@
 <div class="logo">
-	<%= link_to image_tag('logo.png') %>
+	<%= link_to image_tag('logo.png'), root_url %>
 </div>
 <ul class="mainnav">
 	<li><%= link_to "Главная", root_url %></li>
@@ -8,3 +8,9 @@
 	<% end %>
 	<li>О нас</li>
 </ul>
+<% if session[:cart_id] && controller_name != "carts" %>
+	<div class="pagecart">
+		В корзине товара на сумму <%= number_to_currency(Cart.find(session[:cart_id]).total_price, :precision => 0, :unit => "грн.", :separator => ",", :delimiter => "", :format => "%n %u") %>
+		<%= link_to "Перейти в корзину", carts_path%>
+	</div>
+<% end %>
