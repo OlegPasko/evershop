@@ -1,3 +1,4 @@
+# coding: utf-8
 class LineItemsController < ApplicationController
   def create
     @cart = current_cart
@@ -6,10 +7,8 @@ class LineItemsController < ApplicationController
     
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to carts_path,
-          notice: 'line item added.' }
-        format.json { render json: @line_item,
-          status: :created, location: @line_item }
+        format.html { redirect_to carts_path, notice: 'Добавлено в корзину!' }
+        format.json { render json: @line_item, status: :created, location: @line_item }
       else
         format.html { render action: "new" }
         format.json { render json: @line_item.errors,

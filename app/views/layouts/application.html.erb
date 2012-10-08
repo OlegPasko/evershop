@@ -5,18 +5,29 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <% if Rails.env.production? %>
+	  <script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-35001152-1']);
+	  _gaq.push(['_trackPageview']);
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	  </script>
+  <% end %>
 </head>
 <body>
 	<div class="wrapper">
 		<%= render '/layouts/header'%>
+		<% if notice %>
+			<p class="notice"><%= notice %></p>
+		<% end %>
 		<%= yield %>
-		<div class="clear"></div>
+		<div class="clear" style="padding-top: 10px;"></div>
 		<div class="footer">
-			<ul class="mainnav">
-				<% Value.all.each do |v|%>
-					<li><%= link_to v.value, v %></li>
-				<% end %>
-			</ul>
+			2012 © Интернет-магазин чая и кофе Teaco.com.ua. Сделано с любовью в <%= link_to "Everlabs.net", "http://everlabs.net" %>.
 		</div>
 	</div>
 </body>

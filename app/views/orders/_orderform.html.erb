@@ -12,22 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name, "Имя (обязательно):" %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br />
+    <%= f.label :phone, "Телефон (обязательно):" %><br />
     <%= f.text_field :phone %>
   </div>
   <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_area :address %>
+    <%= f.label :email, "Email (желательно):" %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :address, "Адрес и пожелания по доставке:" %><br />
+    <%= f.text_area :address, rows: 5 %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Заказать!", class: "indexadd" %>
   </div>
 <% end %>

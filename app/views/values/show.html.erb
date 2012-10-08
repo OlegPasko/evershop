@@ -6,11 +6,16 @@
 		<% @value.products.each do |product| %>
 		    <li>
 		    	<div class="product-image">
-		          <%= link_to image_tag('testimage.jpeg'), product %>
+		          <% if product.image? %>
+		        	<%= link_to image_tag(product.image_url(:thumb)), product %>
+		        <% else %>
+		        	<%= link_to image_tag('noimage.png'), product %>
+		        <% end %>
 		        </div>
 		        <%= link_to product.title, product, class: "title" %>
 		    	<p class="price"><%= number_to_currency(product.price, :unit => "грн.", :separator => ",", :delimiter => "", :format => "%n %u") %></p>
-		    	<p class="shortdescr">Зеленый крупнолистовой чай с добавкой алоэ вера,кусочками барбариса,шиповника и лепестками роз</p>
+		    	<p class="shortdescr"><%= product.shortdescription %></p>
+		    	<%= button_to "Добавить в корзину", line_items_path(product_id: product), class: "indexadd" %>
 		    </li>
 		<% end %>
 		</ul>

@@ -1,24 +1,24 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
-  <%= @product.title %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @product.description %>
-</p>
-
-<p>
-  <b>Price:</b>
-  <%= @product.price %>
-</p>
-
-<p>
-  <% @product.values.each do |v| %>
-  	<b><%= v.property.name %>:</b> 
-  	<%= v.value %>
-  <% end %>
-</p>
-<%= button_to "Добавить в корзину", line_items_path(product_id: @product) %>
+<div class="container_12">
+	<div class="grid_12"><h2 class="title"><%= @product.title %></h2></div>
+	<div class="grid_4">
+		<div class="showimage">
+			<%= image_tag(@product.image_url(:thumb2)) %>
+		</div>
+	</div>
+	<div class="grid_8">
+		  <p><%= raw(@product.description) %></p>
+		  <% @product.values.each do |v| %>
+		  	<p><b><%= v.property.name %>:</b> <%= link_to v.value, v %></p>
+		  <% end %>
+		<div style="float: left;"><h3><%= number_to_currency(@product.price, :unit => "грн.", :separator => ",", :delimiter => "", :format => "%n %u") %></h3></div>
+		<div style="float: left; padding-top: 22px; padding-left: 16px;"><%= button_to "Добавить в корзину", line_items_path(product_id: @product), class: "indexadd" %></div>
+		<div class="clear"></div>
+		<% if @product.values.any? %>
+			<h5>Посмотрите еще <%=@product.values.first.value %>:</h5>
+			
+			<% @product.values.first.products.limit(3).each do |product| %>
+			        	<div style="margin-right: 10px; display: inline;"><%= link_to image_tag(product.image_url(:thumb3)), product if product.image? %></div>
+			<% end %>
+		<% end %>
+	</div>
+</div>

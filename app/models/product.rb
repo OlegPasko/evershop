@@ -1,7 +1,6 @@
 class Product < ActiveRecord::Base
-  attr_accessible :description, :price, :title, :title
+  attr_accessible :description, :price, :title, :image, :shortdescription, :product_values_attributes
   mount_uploader :image, ProductimageUploader
-
   
   validates_presence_of :description, :price, :title
   validates_uniqueness_of :title
@@ -12,6 +11,8 @@ class Product < ActiveRecord::Base
   has_many :product_values
   has_many :values, :through => :product_values
   has_many :line_items
+  
+  accepts_nested_attributes_for :product_values
   
   before_destroy :ensure_not_referenced_by_any_line_item
   

@@ -1,6 +1,6 @@
 Evershop::Application.routes.draw do
 
-  resources :orders
+  resources :orders, :only => [:create]
 
   resources :line_items
 
@@ -17,7 +17,7 @@ Evershop::Application.routes.draw do
   # first created -> highest priority.
 
   # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
+    match '/about' => 'pages#about'
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:

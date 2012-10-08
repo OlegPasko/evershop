@@ -6,11 +6,11 @@
 	<% Value.fav.sorted.each do |v|%>
 		<li><%= link_to v.value, v %></li>
 	<% end %>
-	<li>О нас</li>
+	<li><%= link_to "О нас", about_path %></li>
 </ul>
 <% if session[:cart_id] && controller_name != "carts" %>
 	<div class="pagecart">
 		В корзине товара на сумму <%= number_to_currency(Cart.find(session[:cart_id]).total_price, :precision => 0, :unit => "грн.", :separator => ",", :delimiter => "", :format => "%n %u") %>
-		<%= link_to "Перейти в корзину", carts_path%>
+		<%= link_to "Перейти в корзину »", carts_path%>
 	</div>
 <% end %>

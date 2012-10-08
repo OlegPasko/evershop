@@ -1,14 +1,19 @@
-<p id="notice"><%= notice %></p>
-<h1>Cart</h1>
-<ul>
-	<% @cart.line_items.each do |item| %>
-	<li><%= item.quantity %> &times; <%= item.product.title %> = <%= item.total_price %></li>
-	<% end %>
-</ul>
-<%= @cart.total_price %>
-<%= button_to 'Очистить корину', @cart, method: :delete %>
-
-
-<br />
-<%= render :partial => '/orders/orderform' %>
-
+<div class="container_12">
+	<div class="grid_6">
+	<h2 class="center">Корзина</h2>
+	<ul class="cart">
+		<% @cart.line_items.each do |item| %>
+		<li><%= item.quantity %> &times; <%= item.product.title %> = <%= number_to_currency(item.total_price, :unit => "грн.", :separator => ",", :delimiter => "", :format => "%n %u") %></li>
+		<% end %>
+		<li><b>Итого: <%= number_to_currency(@cart.total_price, :unit => "грн.", :separator => ",", :delimiter => "", :format => "%n %u") %></b></li>
+	</ul>
+	<div style="text-align: right;"><%= button_to 'Очистить корзину', @cart, method: :delete, class: "clearcart" %></div>
+	<div class="clear"></div>
+	<p>Доставка производится службами УкрПочта и Новая Почта. Оплата за доставку оплачивается покупателем отдельно (10-20 грн.).</p>
+	</div>
+	<div class="grid_6">
+	<h2 class="center">Оформить заказ</h2>
+	
+	<%= render :partial => '/orders/orderform' %>
+	</div>
+</div>

@@ -1,3 +1,4 @@
+# coding: utf-8
 class OrdersController < ApplicationController
   def new
     @order = Order.new
@@ -13,7 +14,7 @@ class OrdersController < ApplicationController
         session[:cart_id] = nil
         OrderMailer.user_email(@order).deliver if @order.email
         OrderMailer.admin_email(@order).deliver
-        format.html {redirect_to root_url, notice: "Thanks for your order!"}
+        format.html {redirect_to root_url, notice: "Спасибо за заказ! Мы свяжемся с Вами в ближайшее время."}
         format.json {render json: @order, status: :created, location: @order}
       else
         @cart = current_cart

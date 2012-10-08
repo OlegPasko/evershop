@@ -7,6 +7,8 @@ gem 'rails', '3.2.8'
 
 gem 'sqlite3'
 gem 'activeadmin'
+gem 'aa_associations'
+
 gem 'russian', '~> 0.6.0'
 
 # Gems used only for assets and not required

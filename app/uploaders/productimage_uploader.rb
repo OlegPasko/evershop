@@ -29,7 +29,7 @@ class ProductimageUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  process :resize_to_limit => [500, 500]
+  process :resize_to_limit => [800, 800]
   #
   # def scale(width, height)
   #   # do something
@@ -39,7 +39,12 @@ class ProductimageUploader < CarrierWave::Uploader::Base
   version :thumb do
     process :resize_to_limit => [180, 180]
   end
-
+  version :thumb2 do
+    process :resize_to_limit => [300, 500]
+  end
+  version :thumb3 do
+    process :resize_to_limit => [80, 80]
+  end
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   # def extension_white_list
