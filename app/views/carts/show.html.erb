@@ -6,7 +6,7 @@
 	<% end %>
 </ul>
 <%= @cart.total_price %>
-<%= button_to 'Очистить корину', @cart, method: :delete %>
+<%= button_to 'Очистить корину', @cart, method: :delete, confirm: "Удалить все товары из корзины?" %>
 
 
 <br />

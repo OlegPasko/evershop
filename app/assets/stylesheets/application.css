@@ -123,6 +123,13 @@ body {
 	border-top: 1px solid #CCCCCC;
 	margin: 0;
 }
+.cartlink {
+	color: #E20000;
+	text-decoration: none;
+}
+.cartlink:hover {
+	border-bottom: 1px solid #E20000;
+}
 #new_order input, #new_order textarea {
 	width: 300px;
 	margin-left: 70px;
