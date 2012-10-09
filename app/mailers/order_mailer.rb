@@ -5,7 +5,7 @@ class OrderMailer < ActionMailer::Base
   def user_email(order)
     @order = order
     @url  = "http://teaco.com.ua"
-    mail(:to => order.email, :subject => "Спасибо за заказ на Teaco.com.ua")
+    mail(:to => order.email, :subject => "Ваш заказ на Teaco.com.ua")
   end
   
   def admin_email(order)

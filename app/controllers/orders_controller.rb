@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
         format.json {render json: @order, status: :created, location: @order}
       else
         @cart = current_cart
-        format.html {render action: "new"}
+        format.html {redirect_to :back, notice: "Проверьте поля! Имя и телефон обязательны для заполнения."}
         format.json {render json: @order.errors, status: :unprocessable_entity}
       end
     end

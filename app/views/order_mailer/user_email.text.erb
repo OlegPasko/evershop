@@ -4,7 +4,7 @@
 Вы заказали в магазине Teaco следующие товары:
 <% sum = 0 %>
 <% @order.line_items.each do |i| %>
-	— <%= i.quantity %> &times; <%= i.product.title %> (<%= number_to_currency(i.total_price, :unit => "грн.", :separator => ",", :delimiter => "", :format => "%n %u") %>)
+	— <%= i.quantity %> x <%= i.product.title %> (<%= number_to_currency(i.total_price, :unit => "грн.", :separator => ",", :delimiter => "", :format => "%n %u") %>)
 	<% sum += i.total_price %>
 <% end %>
 Итого на <%= number_to_currency(sum, :unit => "грн.", :separator => ",", :delimiter => "", :format => "%n %u") %>.
