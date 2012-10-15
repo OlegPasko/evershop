@@ -1,12 +1,13 @@
 <div class="logo">
-	<%= link_to image_tag('logo.png'), root_url %>
+	<%= link_to image_tag('logo.png'), root_url %><br />
+	<div style="text-align: center; font-style: italic; font-weight: bold; color: #e20000;">Элитные сорта чая от Hyson и Tarlton</div>
 </div>
 <ul class="mainnav">
 	<li><%= link_to "Главная", root_url %></li>
 	<% Value.fav.sorted.each do |v|%>
 		<li><%= link_to v.value, v %></li>
 	<% end %>
-	<li><%= link_to "О нас", about_path %></li>
+	<li><%= link_to "Контакты / доставка / оплата", about_path %></li>
 </ul>
 <% if session[:cart_id] && controller_name != "carts" %>
 	<div class="pagecart">
