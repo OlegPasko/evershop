@@ -88,9 +88,9 @@ ActiveRecord::Schema.define(:version => 20121008144415) do
 
   create_table "properties", :force => true do |t|
     t.string   "name"
-    t.integer  "sort"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "sort",       :default => 10
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   create_table "values", :force => true do |t|

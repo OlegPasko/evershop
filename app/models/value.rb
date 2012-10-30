@@ -1,5 +1,5 @@
 class Value < ActiveRecord::Base
-  attr_accessible :fav, :property_id, :value
+  attr_accessible :fav, :property_id, :value, :sort
   
   validates_presence_of :property_id, :value
   
